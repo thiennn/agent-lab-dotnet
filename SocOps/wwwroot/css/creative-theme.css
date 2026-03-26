@@ -1,0 +1,129 @@
+/* ============================================================
+   Creative Theme: "Mango Tango"
+   A vibrant tropical palette for Social Bingo
+   Accent  → vivid orange (#F97316)  replaces default blue
+   Marked  → sky blue  (#0EA5E9)  replaces default green
+   Font    → Pacifico (headings) + Nunito (body)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ── Design tokens ─────────────────────────────────────────── */
+:root {
+  --ct-accent:          #F97316;
+  --ct-accent-hover:    #EA6C0A;
+  --ct-accent-shadow:   rgba(249, 115, 22, 0.30);
+
+  --ct-marked:          #0EA5E9;
+  --ct-marked-hover:    #0284C7;
+  --ct-marked-shadow:   rgba(14, 165, 233, 0.30);
+
+  --ct-bg-page:         #FFFCEB;
+  --ct-bg-surface:      #FFFFFF;
+
+  --ct-text-base:       #1C1917;
+  --ct-text-muted:      #78716C;
+
+  --ct-border-light:    #FED7AA;
+  --ct-radius-card:     18px;
+  --ct-radius-btn:      14px;
+}
+
+/* ── Page background ───────────────────────────────────────── */
+html, body {
+  font-family: 'Nunito', 'Segoe UI', sans-serif;
+  background-color: var(--ct-bg-page);
+  background-image:
+    radial-gradient(ellipse at 10% 10%,  rgba(249,115,22,.08)  0%, transparent 55%),
+    radial-gradient(ellipse at 90% 90%,  rgba(14,165,233,.08)  0%, transparent 55%),
+    radial-gradient(ellipse at 55% 45%,  rgba(251,191, 36,.06) 0%, transparent 40%);
+  min-height: 100vh;
+  color: var(--ct-text-base);
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'Pacifico', cursive;
+  letter-spacing: 0.02em;
+}
+
+/* ── Accent colour overrides ───────────────────────────────── */
+.bg-accent {
+  background-color: var(--ct-accent) !important;
+}
+
+.text-accent {
+  color: var(--ct-accent) !important;
+}
+
+/* ── Marked / selected square ──────────────────────────────── */
+.bg-marked {
+  background-color: var(--ct-marked)       !important;
+  color:            #fff                   !important;
+  box-shadow:       0 2px 10px var(--ct-marked-shadow) !important;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+button.bg-accent,
+a.bg-accent {
+  border-radius: var(--ct-radius-btn) !important;
+  font-family:   'Nunito', sans-serif !important;
+  font-weight:   800 !important;
+  letter-spacing: 0.04em;
+  box-shadow:    0 4px 14px var(--ct-accent-shadow);
+  transition:    transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+button.bg-accent:hover,
+a.bg-accent:hover {
+  transform:   translateY(-2px) !important;
+  box-shadow:  0 7px 20px var(--ct-accent-shadow) !important;
+}
+
+button.bg-accent:active,
+a.bg-accent:active {
+  transform:  translateY(0) !important;
+  box-shadow: 0 2px 8px var(--ct-accent-shadow) !important;
+}
+
+/* ── Cards / surfaces ──────────────────────────────────────── */
+.shadow-xl {
+  box-shadow:
+    0 8px 30px rgba(249, 115, 22, 0.10),
+    0 2px  8px rgba(0,   0,   0, 0.06) !important;
+}
+
+.rounded-xl {
+  border-radius: var(--ct-radius-card) !important;
+}
+
+.bg-white {
+  background-color: var(--ct-bg-surface) !important;
+}
+
+/* ── Bingo board squares ───────────────────────────────────── */
+.aspect-square {
+  border-radius: 10px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease !important;
+}
+
+.aspect-square:hover:not(.bg-marked) {
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.20) !important;
+}
+
+/* ── Bingo win modal accent line ───────────────────────────── */
+.fixed .bg-white.rounded-xl,
+.fixed .shadow-xl {
+  border-top: 4px solid var(--ct-accent) !important;
+}
+
+/* ── Colour helpers ────────────────────────────────────────── */
+.text-amber-500  { color: var(--ct-accent) !important; }
+.text-green-600  { color: var(--ct-marked) !important; }
+.text-gray-500   { color: var(--ct-text-muted) !important; }
+
+/* ── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ct-bg-page); }
+::-webkit-scrollbar-thumb { background: var(--ct-accent); border-radius: 3px; }
